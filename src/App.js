@@ -1,23 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Recipe from "./Recipe";
+import Button from "@material-ui/core/Button";
+
+const API_KEY = "c09257c4afbb1a60d8777a8a25988ad8";
+const API_ID = "e7a705d7";
 
 function App() {
+  const [recipe, setRecipe] = useState([]);
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("chicken");
+
+  const getRecipe = async () => {
+    const response = await fetch(
+      `https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}`
+    );
+    const data = await response.json();
+    setRecipe(data.hits);
+  };
+  useEffect(() => {
+    getRecipe();
+  }, [query]);
+
+  const updateSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const getSearch = (event) => {
+    setQuery(search);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <h1 className="recipe__search">Recipe Search</h1>
+      <div className="header__search">
+        <input
+          className="header__searchInput"
+          type="text"
+          value={search}
+          onChange={updateSearch}
+        />
+        <Button
+          className="header__searchIcon"
+          variant="contained"
+          color="primary"
+          disabled={!search}
+          onClick={getSearch}
+          type="submit"
         >
-          Learn React
-        </a>
-      </header>
+          Search
+        </Button>
+      </div>
+      <div className="__container">
+        <div className="recipe__container">
+          {recipe.length > 0 ? (
+            recipe.map((recipe) => (
+              <Recipe
+                key={recipe.recipe.calories}
+                title={recipe.recipe.label}
+                calorie={recipe.recipe.calories}
+                image={recipe.recipe.image}
+                ingredients={recipe.recipe.ingredients}
+              />
+            ))
+          ) : (
+            <div className="error__message">
+              The recipe you're looking is not on the database. Check the
+              spelling and try again.
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

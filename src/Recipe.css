@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+}
+.image__ {
+  border: 1px solid black;
+}
+.ingredients__list {
+  list-style: none;
+}
+.ingredients__list > li {
+  text-align: justify;
+  padding: 0px;
+}
