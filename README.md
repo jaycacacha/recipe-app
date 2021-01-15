@@ -1,5 +1,7 @@
 # Recipe App
 
+* Demo (https://recipe-app-2021.herokuapp.com/)
+
 This project was made using <br />
 * React useEffect & useState Hooks  <br />
 * Fetching data from public recipe and nutrition api @ [Edimam](https://www.edamam.com/) <br />
