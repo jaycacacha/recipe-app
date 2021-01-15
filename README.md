@@ -3,6 +3,7 @@
 This project was made using <br />
 * React useEffect & useState Hooks  <br />
 * Fetching data from public recipe and nutrition api @ [Edimam](https://www.edamam.com/) <br />
+* Flexbox and Material-ui
 
 ## Contributing
 
