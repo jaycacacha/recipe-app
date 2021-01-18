@@ -1,10 +1,12 @@
 # Recipe App
 
-* Demo (https://recipe-app-2021.herokuapp.com/)
+* Demo <br/>
+[Heroku](https://recipe-app-2021.herokuapp.com/)<br/>
+[Netlify](https://recipe-app-2021.netlify.app/)
 
 This project was made using <br />
-* React useEffect & useState Hooks  <br />
-* Fetching data from public recipe and nutrition api @ [Edimam](https://www.edamam.com/) <br />
+* React Hooks  <br />
+* Fetching data from public recipe and nutrition api from [Edimam](https://www.edamam.com/) <br />
 * Flexbox and Material-ui
 
 ## Contributing
