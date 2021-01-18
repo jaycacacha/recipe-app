@@ -21,7 +21,7 @@ function App() {
     setRecipe(data.hits);
   };
     getRecipe();
-  }, []);
+  }, [query]);
 
   const updateSearch = (event) => {
     setSearch(event.target.value);
