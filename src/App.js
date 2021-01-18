@@ -20,7 +20,8 @@ function App() {
     const data = await response.json();
     setRecipe(data.hits);
   };
-  }, [query]);
+    getRecipe();
+  }, []);
 
   const updateSearch = (event) => {
     setSearch(event.target.value);
